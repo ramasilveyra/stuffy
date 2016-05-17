@@ -1,4 +1,4 @@
-export default (React, stuffy, events) => {
+export default (React, { stuffy, events }) => {
   const Search = () => {
     const onChange = (e) => {
       stuffy.broadcast(events.search, e.target.value);

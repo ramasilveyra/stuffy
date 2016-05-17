@@ -23,6 +23,7 @@ export default (stuffy) => {
   });
 
   return {
-    events
+    events,
+    stuffy
   };
 };
