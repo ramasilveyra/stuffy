@@ -12,7 +12,7 @@ export default (React, stuffy) => {
     event: dispatcher.events.loaded,
     transformer: (R) => ({
       rename: { login: 'username', avatar_url: 'avatar' },
-      extract: ctx => (R.last(ctx.repos).owner),
+      extract: state => (R.last(state.repos).owner),
       pick: ['id', 'login', 'avatar_url']
     })
   });
