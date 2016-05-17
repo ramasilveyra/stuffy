@@ -6,7 +6,9 @@
     "key-spacing": 0,
     "no-console": 0,
     "no-multi-spaces": 0,
-    "react/no-did-mount-set-state": 0
+    "no-use-before-define": 0,
+    "react/no-did-mount-set-state": 0,
+    "react/prop-types": 0
   },
   "globals": {
     "webtaskWidget": true,

@@ -1,21 +1,15 @@
-import { map } from 'lodash';
+import { assign } from 'lodash';
 
-export default (React) => {
-  const Repos = (props) => {
-    const repos = map(props.repos, (repo, idx) => (
-      <ul key={idx}>{repo.name}</ul>
-    ));
+export default (React) => (props) => {
+  const renderRepos = (repos) => repos.map((repo, idx) => (
+    <ul key={idx}>{repo.name}</ul>
+  ));
 
-    return (
-      <ul>
-        { repos }
-      </ul>
-    );
-  };
+  const { repos } = defaults(props);
 
-  Repos.propTypes = {
-    repos: React.PropTypes.array
-  };
-
-  return Repos;
+  return <ul>{renderRepos(repos)}</ul>;
 };
+
+const defaults = (props) => assign({}, props, {
+  repos: props.repos || []
+});
