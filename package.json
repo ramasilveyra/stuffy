@@ -17,6 +17,7 @@
     "react": "^0.14.7",
     "react-ace": "^3.4.1",
     "react-dom": "^0.14.7",
+    "redbox-react": "^1.2.4",
     "rx": "^4.1.0",
     "sandboxjs": "^2.3.1",
     "superagent": "^1.8.3"
