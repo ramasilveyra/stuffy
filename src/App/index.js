@@ -9,8 +9,8 @@ export default (React, stuffy) => {
   const Search   = stuffy.compose(createSearch(React, dispatcher));
   const Repos    = stuffy.compose(createRepos(React), {
     event: dispatcher.events.loaded,
-    transformer: (R) => ({
-      pick: ['name'],
+    transformer: () => ({
+      pick: ['name', 'description', 'language'],
       wrapWith: 'repos'
     })
   });
@@ -29,13 +29,21 @@ export default (React, stuffy) => {
   // 2. Transform result
   // 3. Render component
 
-  const App = () => <div>
-    <h1>Stuffy</h1>
+  const App = () => (
+    <div className="container">
+      <section className="content-page current">
+        <div className="row">
+          <div className="col-xs-12 content-header">
+            <h1 className="pull-left">Stuffy</h1>
+          </div>
+        </div>
 
-    <UserInfo />
-    <Search />
-    <Repos />
-  </div>;
+        <UserInfo />
+        <Search />
+        <Repos />
+      </section>
+    </div>
+  );
 
   return App;
 };

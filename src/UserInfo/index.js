@@ -4,9 +4,9 @@ export default (React) => (props) => {
   const { username, avatar } = defaults(props);
 
   return (
-    <div>
+    <div style={{ float: 'right' }}>
+      <span style={{ marginRight: '10px' }}>{username}</span>
       <img width="32" className="img-circle" src={avatar}></img>
-      <span>{username}</span>
     </div>
   );
 };
