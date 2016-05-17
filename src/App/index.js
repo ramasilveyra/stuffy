@@ -6,13 +6,19 @@ import createUserInfo from '../UserInfo';
 export default (React, stuffy) => {
   const dispatcher = gitHub(stuffy);
 
-  const Repos    = stuffy.compose(createRepos(React), dispatcher.events.loaded);
   const Search   = stuffy.compose(createSearch(React, dispatcher));
+  const Repos    = stuffy.compose(createRepos(React), {
+    event: dispatcher.events.loaded,
+    transformer: (R) => ({
+      pick: ['name'],
+      wrapWith: 'repos'
+    })
+  });
   const UserInfo = stuffy.compose(createUserInfo(React), {
     event: dispatcher.events.loaded,
     transformer: (R) => ({
       rename: { login: 'username', avatar_url: 'avatar' },
-      extract: state => (R.last(state.repos).owner),
+      extract: state => (R.last(state).owner),
       pick: ['id', 'login', 'avatar_url']
     })
   });

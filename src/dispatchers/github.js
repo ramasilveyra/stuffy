@@ -18,7 +18,7 @@ export default (stuffy) => {
           return;
         }
 
-        stuffy.broadcast(events.loaded, { repos: res.body });
+        stuffy.broadcast(events.loaded, res.body);
       });
   });
 
