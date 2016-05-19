@@ -2,9 +2,18 @@
   "name": "stuffy",
   "version": "1.0.0",
   "description": "",
-  "main": "lib/stuffy.js",
+  "files": [
+    "dist",
+    "dist/**",
+    "lib",
+    "lib/**",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "dist/stuffy.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js --hot --inline --port 3000"
+    "start": "webpack-dev-server --config webpack.dev.config.js --hot --inline --port 3000",
+    "build": "webpack -p"
   },
   "author": "javier.centurion@auth0.com",
   "license": "MIT",

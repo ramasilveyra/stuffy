@@ -3,8 +3,10 @@ const webpack           = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  devtool: 'eval-source-map',
   entry: [
-    './lib'
+    'webpack-dev-server/client?http://localhost:3000',
+    './src'
   ],
   output: {
     path:          path.join(__dirname, 'dist'),
@@ -17,11 +19,16 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: ['babel'],
-      include: [path.join(__dirname, 'lib')],
+      include: [path.join(__dirname, 'src'), path.join(__dirname, 'lib')],
     }]
   },
   plugins: [
     new webpack.optimize.DedupePlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new HtmlWebpackPlugin({
+      title:    'Stuffy',
+      template: './templates/index.html',
+      inject:   'head'
+    })
   ]
 };
