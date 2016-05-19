@@ -2,7 +2,7 @@
   "name": "stuffy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/stuffy.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js --hot --inline --port 3000"
   },
