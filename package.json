@@ -13,7 +13,9 @@
   "main": "dist/stuffy.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.config.js --hot --inline --port 3000",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "lint:js": "eslint .",
+    "test": "npm run lint:js"
   },
   "author": "javier.centurion@auth0.com",
   "license": "MIT",
